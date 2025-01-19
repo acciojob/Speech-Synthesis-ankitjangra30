@@ -38,6 +38,18 @@
 
   //Your code goes here
 
+	function populateVoices() {
+  voices = speechSynthesis.getVoices();
+  voicesDropdown.innerHTML = ''; // Clear existing options
+
+  voices.forEach(voice => {
+    const option = document.createElement('option');
+    option.textContent = voice.name;
+    option.value = voice;
+    voicesDropdown.appendChild(option);
+  });
+}
+
 	function speak() {
   if (speechSynthesis.speaking) {
     return; // Prevent speaking if already in progress
